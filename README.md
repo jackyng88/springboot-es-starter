@@ -1,10 +1,10 @@
 # springboot-es-starter
 
 # Spring Boot Event Streams Starter Application
+Sample producer and consumer
 
 ## Introduction
-1. This is a simple Spring Boot application that will produce messages every five seconds to a topic as well as constantly listen
-and consume from said topic.
+1. This is a simple Spring Boot application that will produce messages every five seconds to a topic as well as constantly listen and consume from said topic.
 2. To use this application you will need to update a few values in the code with your Event Streams instance values.
 
 

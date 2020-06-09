@@ -94,7 +94,7 @@ spring.kafka.ssl.truststore-location=/ssl/es-cert.jks
 spring.kafka.consumer.group-id=<unique-consumer-group-id>
   ```
   
-6. We are now down with the `application.properties` file and now we need to open the `src/main/java/com/example/springbootesapp/DemoApplication.java` file. 
+6. We are now done with the `application.properties` file and now we need to open the `src/main/java/com/example/springbootesapp/DemoApplication.java` file. 
 
 7. On line 35, replace `<TOPIC-NAME>` with your own created Topic's name.
 ```java

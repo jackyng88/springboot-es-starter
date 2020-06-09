@@ -1,6 +1,6 @@
 # springboot-es-starter
 
-# Spring Boot Event Streams Starter Application
+# Spring Boot IBM Event Streams Starter Application
 Sample producer and consumer
 
 ## Introduction

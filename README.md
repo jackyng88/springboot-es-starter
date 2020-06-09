@@ -110,17 +110,12 @@ kafkaTemplate.send("<TOPIC-NAME>", String.valueOf(random.nextInt(100)), String.v
 
 
 ## Running the application
-1. Go to the root of the project folder. Install all the necessary dependencies and libraries
-```shell
-mvn clean install
-```
-
-2. Run the application
+1. Go to the root of the project folder. Run the application
 ```shell
 mvn spring-boot:run
 ```
 
-3. Your consumer should return some log messages similar to the below.
+2. Your consumer should return some log messages similar to the below.
 ```log
 2020-06-09 10:36:23.647  INFO 41146 --- [ntainer#0-0-C-1] c.e.springbootesapp.DemoApplication      : Message from topic = Key 1, Value 55
 2020-06-09 10:36:28.650  INFO 41146 --- [ntainer#0-0-C-1] c.e.springbootesapp.DemoApplication      : Message from topic = Key 70, Value 35

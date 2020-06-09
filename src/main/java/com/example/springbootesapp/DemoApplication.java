@@ -20,8 +20,8 @@ import org.springframework.kafka.core.KafkaTemplate;
 @SpringBootApplication
 public class DemoApplication {
 
-	private Random random = new Random();
-	private static final Logger LOGGER = LoggerFactory.getLogger(DemoApplication.class);
+    private Random random = new Random();
+    private static final Logger LOGGER = LoggerFactory.getLogger(DemoApplication.class);
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
@@ -32,12 +32,12 @@ public class DemoApplication {
         return args -> {
             while (true) {
                 Thread.sleep(5000);
-				kafkaTemplate.send("jng-test", String.valueOf(random.nextInt(100)), String.valueOf(random.nextInt(100)));
+		kafkaTemplate.send("<TOPIC-NAME>", String.valueOf(random.nextInt(100)), String.valueOf(random.nextInt(100)));
             }
         };
 	}
 	
-	@KafkaListener(topics = "jng-test")
+    @KafkaListener(topics = "<TOPIC-NAME>")
     public void processMessage(ConsumerRecord<String, String> record) {
 		LOGGER.info("Message from topic = Key {}, Value {}", record.key(), record.value());
 	}

@@ -32,12 +32,12 @@ public class DemoApplication {
         return args -> {
             while (true) {
                 Thread.sleep(5000);
-				kafkaTemplate.send("TOPIC-NAME", String.valueOf(random.nextInt(100)), String.valueOf(random.nextInt(100)));
+				kafkaTemplate.send("jng-test", String.valueOf(random.nextInt(100)), String.valueOf(random.nextInt(100)));
             }
         };
 	}
 	
-	@KafkaListener(topics = "TOPIC-NAME")
+	@KafkaListener(topics = "jng-test")
     public void processMessage(ConsumerRecord<String, String> record) {
 		LOGGER.info("Message from topic = Key {}, Value {}", record.key(), record.value());
 	}

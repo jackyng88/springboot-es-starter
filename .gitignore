@@ -2,6 +2,7 @@ HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 **/src/main/webapp/**
+**/src/main/java/com/example/springbootesapp/EventStreamsController.java
 !**/src/test/**
 
 ### STS ###

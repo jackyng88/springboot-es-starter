@@ -2,20 +2,20 @@
 
 # Spring Boot Event Streams Starter Application
 
-## Introduction - 
+## Introduction
 1. This is a simple Spring Boot application that will produce messages every five seconds to a topic as well as constantly listen
 and consume from said topic.
 2. To use this application you will need to update a few values in the code with your Event Streams instance values.
 
 
-## Pre-requisites - 
+## Pre-requisites
 1. An IBM Event Streams instance installed on IBM Cloud Pak for Integration.
 2. Spring Boot
 3. Maven v3.6.x+
 4. Spring Boot CLI v2.x.x+
 
 
-## Getting the necessary Event Streams details (Bootstrap Server, API Key, Certificate) - 
+## Getting the necessary Event Streams details (Bootstrap Server, API Key, Certificate)
 1. This markdown assumes you have an Event Streams instance installed on IBM Cloud Pak for Integration. As such the following steps
 that are outlined reflect that process. These steps may differ from say IBM Event Streams on IBM Cloud for example.
 2. Login to the Cloud Pak for Integration Platform Navigator and choose your installed Event Streams instance.
@@ -37,7 +37,7 @@ These are the following items obtained in the previous section.
 - Java truststore certificate (es-cert.jks)
 
 
-## Replacing necessary field names - 
+## Replacing necessary field names
 1. Now that you have your Event Streams credentials traverse to the `src/main/resources/application.properties` file. 
 
 ```properties
@@ -89,5 +89,39 @@ Spring Kafka expects the truststore to be in that folder. For example if you hav
 spring.kafka.ssl.truststore-location=/ssl/es-cert.jks
 ```
 
-5. 
+5. Replace `<unique-consumer-group-id>` with a value of your choosing. This is to prevent conflicts in case another consumer group has the same id.
+```properties
+spring.kafka.consumer.group-id=<unique-consumer-group-id>
+  ```
+  
+6. We are now down with the `application.properties` file and now we need to open the `src/main/java/com/example/springbootesapp/DemoApplication.java` file. 
 
+7. On line 35, replace `<TOPIC-NAME>` with your own created Topic's name.
+```java
+kafkaTemplate.send("<TOPIC-NAME>", String.valueOf(random.nextInt(100)), String.valueOf(random.nextInt(100)));
+```
+
+8. Do the same thing on line 40 as well; replace with your created Topic's name.
+```java
+@KafkaListener(topics = "<TOPIC-NAME>")
+```
+
+9. We have now replaced all the necessary fields.
+
+
+## Running the application
+1. Go to the root of the project folder. Install all the necessary dependencies and libraries
+```shell
+mvn clean install
+```
+
+2. Run the application
+```shell
+mvn spring-boot:run
+```
+
+3. Your consumer should return some log messages similar to the below.
+```log
+2020-06-09 10:36:23.647  INFO 41146 --- [ntainer#0-0-C-1] c.e.springbootesapp.DemoApplication      : Message from topic = Key 1, Value 55
+2020-06-09 10:36:28.650  INFO 41146 --- [ntainer#0-0-C-1] c.e.springbootesapp.DemoApplication      : Message from topic = Key 70, Value 35
+```

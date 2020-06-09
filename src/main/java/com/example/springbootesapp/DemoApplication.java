@@ -35,7 +35,7 @@ public class DemoApplication {
 		kafkaTemplate.send("<TOPIC-NAME>", String.valueOf(random.nextInt(100)), String.valueOf(random.nextInt(100)));
             }
         };
-	}
+    }
 	
     @KafkaListener(topics = "<TOPIC-NAME>")
     public void processMessage(ConsumerRecord<String, String> record) {

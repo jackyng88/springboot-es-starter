@@ -120,3 +120,5 @@ mvn spring-boot:run
 2020-06-09 10:36:23.647  INFO 41146 --- [ntainer#0-0-C-1] c.e.springbootesapp.DemoApplication      : Message from topic = Key 1, Value 55
 2020-06-09 10:36:28.650  INFO 41146 --- [ntainer#0-0-C-1] c.e.springbootesapp.DemoApplication      : Message from topic = Key 70, Value 35
 ```
+
+3. You can check that the consumed messages are the same by checking the UI of the topic on the Event Streams instance.

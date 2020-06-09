@@ -83,7 +83,7 @@ spring.kafka.bootstrap-servers=<es-bootstrap-address>
 spring.kafka.jaas.options.password=<ES-APIKey>
 ```
 
-4. For this next step you will need to copy your Event Streams Java truststore certificate into the `src/main/webapp` folder.
+4. (Important) For this next step you will need to copy your Event Streams Java truststore certificate into the `src/main/webapp` folder.
 Spring Kafka expects the truststore to be in that folder. For example if you have your file inside an ssl folder inside webapp it would be
 ```properties
 spring.kafka.ssl.truststore-location=/ssl/es-cert.jks

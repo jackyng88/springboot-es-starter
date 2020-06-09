@@ -5,6 +5,7 @@ target/
 **/src/main/java/com/example/springbootesapp/EventStreamsController.java
 !**/src/test/**
 
+
 ### STS ###
 .apt_generated
 .classpath
